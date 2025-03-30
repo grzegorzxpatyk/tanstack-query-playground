@@ -1,10 +1,15 @@
-import axios from "axios";
+import axios from 'axios';
 
-// eslint-disable-next-line @typescript-eslint/no-explicit-any
-export const updatePost = async (payload: { [key: string]: any }) => {
+type PostDto = {
+  title: string;
+  body: string;
+  userId: number;
+};
+
+export const updatePost = async (payload: PostDto) => {
   const data = await axios.put(
-    "https://jsonplaceholder.typicode.com/posts/1",
-    payload,
+    'https://jsonplaceholder.typicode.com/posts/dupa',
+    payload
   );
   return data.data;
 };
