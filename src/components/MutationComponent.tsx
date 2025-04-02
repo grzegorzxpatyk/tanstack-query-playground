@@ -2,12 +2,14 @@ import { useMutation } from '@tanstack/react-query';
 import { Button } from './ui/button';
 import { updatePost } from '../api';
 import { toast } from 'sonner';
+import queryClient from '@/QueryClientConfig';
 
 const MutationComponent = () => {
   const { mutate } = useMutation({
     mutationKey: ['updatePost'],
     mutationFn: updatePost,
-    onSuccess: () => {
+    onSuccess: (updatedData) => {
+      queryClient.setQueryData(['post'], updatedData);
       toast.success('Post updated successfuly!', {
         richColors: true,
       });
@@ -15,7 +17,10 @@ const MutationComponent = () => {
   });
 
   const handleCLick = () => {
-    mutate({ title: 'foo', body: 'bar', userId: 1 });
+    mutate({
+      id: 1,
+      payload: { title: 'DUPA', body: 'JA PIERDOLE', userId: 69 },
+    });
   };
 
   return (

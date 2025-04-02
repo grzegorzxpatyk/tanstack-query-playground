@@ -13,9 +13,15 @@ export const getPost = async (id: number) => {
   return data.data;
 };
 
-export const updatePost = async (payload: PostDto) => {
+export const updatePost = async ({
+  id,
+  payload,
+}: {
+  id: number;
+  payload: PostDto;
+}) => {
   const data = await axios.put(
-    'https://jsonplaceholder.typicode.com/posts/dupa',
+    `https://jsonplaceholder.typicode.com/posts/${id}`,
     payload
   );
   return data.data;
