@@ -1,6 +1,6 @@
 import { QueryClient, QueryClientProvider } from '@tanstack/react-query';
 import './App.css';
-import MutationComponent from './MutationComponent';
+import MutationComponent from './components/MutationComponent';
 import { Toaster } from './components/ui/sonner';
 import { toast } from 'sonner';
 

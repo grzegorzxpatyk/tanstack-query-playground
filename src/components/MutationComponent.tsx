@@ -1,6 +1,6 @@
 import { useMutation } from '@tanstack/react-query';
-import { Button } from './components/ui/button';
-import { updatePost } from './api';
+import { Button } from './ui/button';
+import { updatePost } from '../api';
 import { toast } from 'sonner';
 
 const MutationComponent = () => {
